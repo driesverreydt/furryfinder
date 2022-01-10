@@ -25,6 +25,10 @@ export class PetService {
     )
   }
 
+  getPetByName(name: string): Observable<any> {
+    return this.http.get<Pet>(this.url + '/' + name);
+  }
+
   addPet(pet: Pet): Observable<Pet> {
     return this.http.post<Pet>(this.url,pet, this.httpOptions).pipe(
       tap( _ => this.setRefresh(true)),
@@ -68,4 +72,5 @@ export class PetService {
 
     this.refresh.next(value);
   }
+
 }
