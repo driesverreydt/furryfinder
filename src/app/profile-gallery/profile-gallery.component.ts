@@ -10,7 +10,7 @@ import { Pet } from "../model/Pet";
 export class ProfileGalleryComponent implements OnInit {
 
   pets: Pet[] = [];
-  selectedPet: Pet | undefined;
+  selectedPet?: Pet;
   searchText?: string;
 
   constructor(private petService: PetService) {}
@@ -22,7 +22,6 @@ export class ProfileGalleryComponent implements OnInit {
         this.getPets()
       }
     })
-
   }
 
   getPets(): void {
@@ -32,5 +31,10 @@ export class ProfileGalleryComponent implements OnInit {
 
   selectPet(selectedPet: Pet): void {
     this.selectedPet = selectedPet;
+  }
+
+  deletePet(id: number): void {
+    this.petService.deletePet(id)
+      .subscribe(pet => console.warn(`Your pet with ${id} has been deleted`, pet));
   }
 }

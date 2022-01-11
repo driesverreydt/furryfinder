@@ -32,9 +32,17 @@ export class PetService {
   addPet(pet: Pet): Observable<Pet> {
     return this.http.post<Pet>(this.url,pet, this.httpOptions).pipe(
       tap( _ => this.setRefresh(true)),
-      tap(_ => this.log(`updated hero id=${pet.id}`)),
-      catchError(this.handleError<any>('updateHero'))
+      tap(_ => this.log(`added new pet`)),
+      catchError(this.handleError<any>('addPet'))
     );
+  }
+
+  deletePet(id: number): Observable<any> {
+    return this.http.delete(this.url+`/${id}`).pipe(
+      tap( _ => this.setRefresh(true)),
+      tap(_ => this.log(`deleted pet id=${id}`)),
+      catchError(this.handleError<any>('deletePet'))
+    )
   }
 
   private log(message: string){

@@ -41,6 +41,11 @@
                [routerLink]="['setup-date',selectedPet.name]">
               Setup date
             </a>
+            <a type="button"
+               class="btn btn-primary btn-lg dialog-centered"
+               (click)="deletePet(selectedPet.id)">
+              Delete Pet
+            </a>
           </div>
         </section>
 

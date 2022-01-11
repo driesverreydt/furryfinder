@@ -20,7 +20,7 @@ export class PetformComponent implements OnInit {
   }
 
   petForm = this.formBuilder.group({
-    id: this.count,
+    id: '',//this.count,
     name: '',
     kind: '',
     image: '',
@@ -33,7 +33,7 @@ export class PetformComponent implements OnInit {
       .subscribe(pet => console.warn('Your pet has been added', pet))
     console.warn('Your pet form has been added', this.petForm.value);
     this.petForm.reset();
-    this.count++;
-    this.petForm.setValue({id: this.count})
+    //this.count++;
+    //this.petForm.setValue({id: this.count})
   }
 }
