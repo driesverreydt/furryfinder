@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PetService } from "../service/pet.service";
 import { Pet } from "../model/Pet";
+import  {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-profile-gallery',
@@ -9,6 +10,7 @@ import { Pet } from "../model/Pet";
 })
 export class ProfileGalleryComponent implements OnInit {
 
+  backendUrl: string = environment.backendUrl;
   pets: Pet[] = [];
   selectedPet?: Pet;
   searchText?: string;

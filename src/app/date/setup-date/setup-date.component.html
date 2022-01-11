@@ -4,7 +4,7 @@
       <div class="big-dialog">
         <div class="clearfix" *ngIf="pet">
           <div class="pull-left dialog-picture">
-            <img class="small-profile-picture" [src]="'http://localhost:8080/'+ pet.image">
+            <img class="small-profile-picture" [src]="backendUrl+'/'+pet.image">
           </div>
           <h3>{{pet.name}}</h3>
           <p>{{pet.profileText}}</p>
